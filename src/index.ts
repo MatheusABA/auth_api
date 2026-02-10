@@ -2,11 +2,13 @@ import { Elysia } from "elysia";
 import { z } from "zod";
 import openapi from "@elysiajs/openapi";
 
+// const BetterAuthHandler = new Elysia().mount()
+
+
 const MainServer = new Elysia()
   .get("/", () => "Hello Elysia\n")
   .get("/users/:id", ({ params }: any) => {
     const userId = params.id;
-
     return { id: userId, name: 'Matheus Alexandre' }
   }, {
     params: z.object({
