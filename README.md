@@ -12,4 +12,14 @@ To start the development server run:
 bun run dev
 ```
 
-Open http://localhost:3000/ with your browser to see the result.
+To generate and run migrations, use the following commands:
+```bash
+bun db:generate
+```
+```bash
+bun db:migrate
+```
+
+Open http://localhost:4040/ with your browser to see the result.
+
+Open api documentation at http://localhost:4040/openapi
