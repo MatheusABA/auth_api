@@ -19,10 +19,16 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     autoSignIn: true,
+    disableSignUp: true,
     password: {
       hash: (password: string) => Bun.password.hash(password),
       verify: ({ password, hash }) => Bun.password.verify(password, hash)
     }
+  },
+  rateLimit: {
+    enabled: true,
+    points: 5,
+    duration: 60 * 15,
   },
   session: {
     expiresIn: 60 * 60 * 24 * 7,

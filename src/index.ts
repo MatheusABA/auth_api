@@ -20,7 +20,17 @@ const MainServer = new Elysia()
     }
   }))
   .use(betterAuthPlugin)
-  .get("/", () => "Hello Elysia\n")
+  .get("/", () => {
+    return {
+      message: "Hello, Elysia!"
+    };
+  }, {
+    detail: {
+      summary: "Root endpoint",
+      tags: ["General"]
+    }
+  }
+  )
   .get("/users/:id", ({ params, session }: { params: any, session: Session }) => {
     const userId = params.id;
 
